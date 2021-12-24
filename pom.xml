@@ -16,6 +16,15 @@
     <name>bookstore</name>
     <description>Bookstore application based on Spring Boot</description>
 
+    <developers>
+        <developer>
+            <name>Mykh D.A.</name>
+            <email>AX5555AC@gmail.com</email>
+            <organization>DMA1998</organization>
+            <organizationUrl>https://github.com/DMA1998</organizationUrl>
+        </developer>
+    </developers>
+
     <properties>
         <java.version>11</java.version>
         <lombok.version>1.18.12</lombok.version>
@@ -34,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
