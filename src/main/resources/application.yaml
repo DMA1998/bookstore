@@ -1,6 +1,10 @@
+#Server port by default 8081
 server:
   port: 8081
 
+#Configuration profiles
+
+#Test profile
 ---
 spring:
   config:
@@ -12,6 +16,7 @@ enabled: false
 servers:
   - www.bookstore.test.com
 
+#Production profile
 ---
 spring:
   config:
@@ -22,3 +27,15 @@ environment: production
 enabled: true
 servers:
   - www.bookstore.com
+
+#Development profile
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+name: dev-YAML
+environment: development
+enabled: true
+servers:
+  - www.bookstore.dev.com
