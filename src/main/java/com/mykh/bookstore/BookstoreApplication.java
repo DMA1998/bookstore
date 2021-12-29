@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BookstoreApplication implements CommandLineRunner {
 
     @Autowired
-    ApplicationInfo helper;
+    ApplicationInfo info;
 
     public static void main(String[] args) {
         SpringApplication.run(BookstoreApplication.class, args);
@@ -18,6 +18,6 @@ public class BookstoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        helper.yamlConfigurationInfo();
+        info.yamlConfigurationInfo();
     }
 }
