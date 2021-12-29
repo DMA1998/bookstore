@@ -1,7 +1,9 @@
 package com.mykh.bookstore.model.user;
 
-import lombok.Getter;
-import lombok.Setter;
+
+
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,10 +11,11 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.time.LocalDate;
 
-@Getter
-@Setter
+@Data
 @Entity
+@NoArgsConstructor
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;

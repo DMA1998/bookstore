@@ -30,10 +30,11 @@
         <lombok.version>1.18.12</lombok.version>
         <junit.version>4.13.1</junit.version>
         <assertj-core.version>3.21.0</assertj-core.version>
+        <spring.data.version>2.6.0</spring.data.version>
+        <javax.persistence.version>2.2</javax.persistence.version>
         <!--Overrode parent versions-->
         <spring.boot.configuration.version>2.6.1</spring.boot.configuration.version>
         <mysql.connector.version>8.0.17</mysql.connector.version>
-        <javax.persistence.version>2.2</javax.persistence.version>
     </properties>
 
     <dependencies>
@@ -51,6 +52,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-jpa</artifactId>
+            <version>${spring.data.version}</version>
         </dependency>
         <!--Test dependencies-->
         <dependency>
