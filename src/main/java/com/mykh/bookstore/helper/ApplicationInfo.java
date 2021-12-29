@@ -4,8 +4,11 @@ import com.mykh.bookstore.configuration.YAMLConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 
+/**
+ * Current class displays all useful "inside" information about application based on multiple configurations
+ */
 @Configuration
-public class ApplicationHelper {
+public class ApplicationInfo {
 
     @Autowired
     private YAMLConfig config;
