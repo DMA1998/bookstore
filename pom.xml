@@ -63,6 +63,12 @@
             <version>${assertj-core.version}</version>
             <scope>test</scope>
         </dependency>
+        <!--Database dependencies-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>8.0.17</version>
+        </dependency>
         <!--Util dependencies-->
         <dependency>
             <groupId>org.projectlombok</groupId>

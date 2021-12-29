@@ -1,10 +1,10 @@
 package com.mykh.bookstore.model.book;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-
-@Data
-@AllArgsConstructor
 public class Book {
+    //primary key
+    private int id;
     private String name;
+    private int year;
+    //foreign key
+    private int author_id;
 }
