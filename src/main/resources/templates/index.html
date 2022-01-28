@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All books</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <!--    <link rel="stylesheet" type="text/css" media="all"
+             href="../../css/gtvg.css" th:href="@{/css/gtvg.css}" />-->
+</head>
+<body>
+<div th:each="book : ${book}}">
+<a th:href="@{/book/{id}(id=${person.getId()})}" th:text="${book.getName()}">user</a>
+
+</div>
+<p th:text="#{home.welcome}">Welcome to our grocery store!</p>
+</body>
+</html>
