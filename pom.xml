@@ -13,6 +13,7 @@
     <groupId>com.mykh</groupId>
     <artifactId>bookstore</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>bookstore</name>
     <description>Bookstore application based on Spring Boot</description>
 
@@ -36,7 +37,6 @@
         <spring.boot.configuration.version>2.6.1</spring.boot.configuration.version>
         <mysql.connector.version>8.0.17</mysql.connector.version>
         <powermock.version>1.6.6</powermock.version>
-        <hibernate-core.version>5.2.2.Final</hibernate-core.version>
     </properties>
 
     <dependencies>

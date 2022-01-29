@@ -2,9 +2,10 @@ package com.mykh.bookstore.controller.author;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
-@RequestMapping(path = "/demo")
+@RestController
+@RequestMapping("api/v1/author")
 public class AuthorController {
 
 }
