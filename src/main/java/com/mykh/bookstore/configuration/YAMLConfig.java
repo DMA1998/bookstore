@@ -9,6 +9,9 @@ import org.springframework.context.annotation.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Configuration class that contains .yaml configuration properties
+ * */
 @Getter
 @Setter
 @Configuration
