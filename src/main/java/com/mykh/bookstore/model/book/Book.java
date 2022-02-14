@@ -1,5 +1,6 @@
 package com.mykh.bookstore.model.book;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.mykh.bookstore.model.author.Author;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -34,5 +35,6 @@ public class Book {
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "author_id",nullable = false)
+    @JsonIgnore
     private Author author;
 }

@@ -1,17 +1,15 @@
 package com.mykh.bookstore.controller.author;
 
+import com.mykh.bookstore.service.author.AuthorService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-@RequiredArgsConstructor
 @Controller
 @RequestMapping("api/v1/author")
+@RequiredArgsConstructor
 public class AuthorController {
 
-    @GetMapping("/")
-    public String welcome() {
-        return "/test";
-    }
+    private final AuthorService authorService;
+
 }
