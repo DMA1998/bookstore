@@ -1,0 +1,4 @@
+com\mykh\bookstore\appuser\api\AppUserControllerIntegrationTest.class
+com\mykh\bookstore\DemoApplicationTests.class
+com\mykh\bookstore\registration\email\validation\EmailValidatorTest.class
+com\mykh\bookstore\util\RegistrationRequestUtil.class
