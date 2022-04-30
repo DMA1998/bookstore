@@ -7,6 +7,9 @@ import java.util.function.Predicate;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import static java.lang.Boolean.FALSE;
+import static java.lang.Boolean.TRUE;
+
 @Service
 public class EmailValidator implements Predicate<String> {
 
@@ -17,7 +20,7 @@ public class EmailValidator implements Predicate<String> {
        return Optional.of(email)
                 .map(PATTERN::matcher)
                 .filter(Matcher::find)
-                .map(isEmailValid -> Boolean.TRUE)
-                .orElse(Boolean.FALSE);
+                .map(isEmailValid -> TRUE)
+                .orElse(FALSE);
     }
 }

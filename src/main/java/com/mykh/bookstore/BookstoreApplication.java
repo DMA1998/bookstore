@@ -18,6 +18,6 @@ public class BookstoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        appUserAdminService.setAdmins();
+        appUserAdminService.updateAdmins();
     }
 }

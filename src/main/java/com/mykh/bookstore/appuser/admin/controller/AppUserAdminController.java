@@ -11,15 +11,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
 
 @Controller
-@RequestMapping("/api/v2/admins")
+@RequestMapping("/api/v1/admin")
 @AllArgsConstructor
 public class AppUserAdminController {
 
     private final AppUserAdminService appUserAdminService;
 
-    @GetMapping("/reload")
+    @GetMapping("/update")
     public String updateAdmins(Model model) {
-        appUserAdminService.setAdmins();
+        appUserAdminService.updateAdmins();
         List<AppUser> admins = appUserAdminService.findAdmins();
         model.addAttribute("admins", admins);
         return "admins";

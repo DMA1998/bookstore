@@ -13,6 +13,8 @@ import java.util.List;
 import java.util.Objects;
 
 import static com.fasterxml.jackson.annotation.JsonInclude.Include.NON_NULL;
+import static com.mykh.bookstore.util.Constants.ADMINS_JSON_PATH;
+import static com.mykh.bookstore.util.ObjectMapperHolder.getObjectMapper;
 
 @Getter
 @JsonInclude(NON_NULL)
@@ -27,9 +29,8 @@ public class AdminsDTO {
     @SneakyThrows
     public static AdminsDTO getAdminDto() {
         if (Objects.isNull(instance)) {
-            instance = ObjectMapperHolder.getObjectMapper()
-                    .readValue(Paths.get(
-                            Constants.ADMINS_JSON_PATH).toFile(),
+            instance = getObjectMapper().readValue(Paths.get(
+                            ADMINS_JSON_PATH).toFile(),
                             AdminsDTO.class);
         }
         return instance;

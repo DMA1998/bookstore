@@ -11,8 +11,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class WelcomeView {
 
     @GetMapping(value = "/welcome")
-    public String showWelcome() {
-        //language=html
+    public String welcomePage() {
         return "welcome";
     }
 }

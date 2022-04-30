@@ -19,7 +19,7 @@ public class AppUserAdminService {
     private final AppUserAdminRepository appUserAdminRepository;
 
     @SneakyThrows
-    public void setAdmins() {
+    public void updateAdmins() {
         AdminsDTO.getAdminDto().getAdmins()
                 .forEach(this::enableAdminUser);
     }

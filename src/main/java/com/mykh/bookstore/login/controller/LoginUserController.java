@@ -20,7 +20,7 @@ public class LoginUserController {
     private final LoginService loginService;
 
     @GetMapping
-    public String login(Model model) {
+    public String loginView(Model model) {
         LoginRequest loginRequest = new LoginRequest();
         model.addAttribute("login_request", loginRequest);
         return "login";

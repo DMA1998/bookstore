@@ -9,6 +9,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 @Slf4j
@@ -26,16 +27,8 @@ public class RegistrationView {
 
     @PostMapping(value = "/api/v2/registration")
     public String successForm(@ModelAttribute("request") RegistrationRequest request) {
-
         return "welcome";
     }
-
- /*   @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public ResponseEntity<RegistrationRequest> registeration(WebRequest webRequest, Model model) {
-        RegistrationRequest request = new RegistrationRequest();
-        model.addAttribute("request", request);
-        return "registration";
-    }*/
 
     @PostMapping(path = "api/v1/registration/view")
     public String register(@ModelAttribute RegistrationRequest request) {

@@ -13,7 +13,6 @@ import com.mykh.bookstore.registration.view.WelcomeView;
 import com.mykh.bookstore.token.model.ConfirmationToken;
 import com.mykh.bookstore.token.service.ConfirmationTokenService;
 import com.mykh.bookstore.util.MessageProvider;
-import com.mykh.bookstore.appuser.enumeration.AppUserRole;
 import com.mykh.bookstore.util.HtmlEmailPageBuilder;
 import com.mykh.bookstore.util.RegistrationConstants;
 import lombok.AllArgsConstructor;
@@ -24,6 +23,8 @@ import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
+import static com.mykh.bookstore.appuser.enumeration.AppUserRole.USER;
+import static com.mykh.bookstore.util.RegistrationConstants.BAD_EMAIL;
 import static java.text.MessageFormat.format;
 import static java.time.LocalDateTime.now;
 
@@ -43,7 +44,7 @@ public class RegistrationService {
         String email = request.getEmail();
         boolean isValidEmail = emailValidator.test(email);
         if (!isValidEmail) {
-            throw new EmailValidationException(MessageFormat.format(RegistrationConstants.BAD_EMAIL, email));
+            throw new EmailValidationException(MessageFormat.format(BAD_EMAIL, email));
         }
 
         String token = appUserService.signUpUser(new AppUser(
@@ -51,13 +52,13 @@ public class RegistrationService {
                 request.getLastName(),
                 request.getEmail(),
                 request.getPassword(),
-                AppUserRole.USER
+                USER
         ));
 
         String link = messageProvider.getTokenConfirmationLink() + token;
         emailSender.send(request.getEmail(), HtmlEmailPageBuilder.buildEmail(request.getFirstName(), link));
 
-        return welcomeView.showWelcome();
+        return welcomeView.welcomePage();
     }
 
     @Transactional
