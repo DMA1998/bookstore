@@ -18,13 +18,13 @@ com\mykh\bookstore\http\Response$ResponseBuilder.class
 com\mykh\bookstore\login\controller\LoginUserController.class
 com\mykh\bookstore\token\model\ConfirmationToken.class
 com\mykh\bookstore\appuser\view\AppUserViewController.class
+com\mykh\bookstore\BookstoreApplication.class
 com\mykh\bookstore\appuser\api\AppUserController.class
 com\mykh\bookstore\exception\registration\token\TokenNotFoundException.class
 com\mykh\bookstore\exception\login\UserNotFoundException.class
 com\mykh\bookstore\security\config\WebSecurityConfig.class
 com\mykh\bookstore\login\service\LoginService.class
 com\mykh\bookstore\exception\registration\RegistrationException.class
-com\mykh\bookstore\DemoApplication.class
 com\mykh\bookstore\util\RegistrationConstants.class
 com\mykh\bookstore\exception\email\EmailConfirmationException.class
 com\mykh\bookstore\util\HtmlEmailPageBuilder.class

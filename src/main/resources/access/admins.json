@@ -1,5 +1,5 @@
 {
-  "comment": "Add new admins or delete not needed",
+  "comment": "Add new admins or delete not needed. DTO is placed by path: /src/main/java/com/mykh/bookstore/appuser/admin/dto",
 
   "admins": [
     "AX5555AC@gmail.com"
