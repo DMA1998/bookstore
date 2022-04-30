@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>admins</title>
+</head>
+<body>
+<div>
+    <h4><a href="http://localhost:8080">Come back to welcome page</a></h4>
+</div>
+<h1>Admins successfully updated</h1>
+<br>
+<h2>List of admins:</h2>
+<div th:each="admin: ${admins}">
+    <h3 th:text="${admin.email}"></h3>
+</div>
+</body>
+</html>

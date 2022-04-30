@@ -1,20 +1,16 @@
 package com.mykh.bookstore;
 
-import com.mykh.bookstore.helper.ApplicationInfo;
-import lombok.RequiredArgsConstructor;
+import com.mykh.bookstore.appuser.admin.service.AppUserAdminService;
+import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.autoconfigure.domain.EntityScan;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@RequiredArgsConstructor
-@EntityScan("com.mykh.bookstore.model")
-@EnableJpaRepositories("com.mykh.bookstore.repository")
+@AllArgsConstructor
 public class BookstoreApplication implements CommandLineRunner {
 
-    private final ApplicationInfo info;
+    private final AppUserAdminService appUserAdminService;
 
     public static void main(String[] args) {
         SpringApplication.run(BookstoreApplication.class, args);
@@ -22,6 +18,6 @@ public class BookstoreApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) {
-        info.yamlConfigurationInfo();
+        appUserAdminService.setAdmins();
     }
 }
