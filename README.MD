@@ -43,10 +43,10 @@ This is bookstore web java application written in Java based on Spring Boot with
 * [JQuery](https://jquery.com)
 
 ### Database
-[MySQL](https://www.mysql.com/)
+* [MySQL](https://www.mysql.com/)
 
 ### Build automation tool
-[Maven](https://maven.apache.org/)
+* [Maven](https://maven.apache.org/)
 
 ## Getting Started
 
