@@ -52,7 +52,7 @@ This is bookstore web java application written in Java based on Spring Boot with
 
 ### Prerequisites
 
-For running the application make sure components bellow installed on your local machine
+For running the application make sure components bellow installed on your local machine:
 
 * Java 11
 * Maven 3.6.0+
@@ -61,14 +61,17 @@ For running the application make sure components bellow installed on your local 
 ### Installation
 
 1. Clone the repo:
+
    ```sh
    git clone https://github.com/DMA1998/bookstore-2022.git
    ```
 2. Set up datasource url:
+
    ```sh
    jdbc:mysql://localhost:3306/bookstore
    ```
-3. Build application:
+3. Build application
+
    ```sh
    mvn clean install -DskipTests=true
    ```
