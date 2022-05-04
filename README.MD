@@ -27,7 +27,7 @@
 ## About The Project
 
 
-This is bookstore web java application written in Java based on Spring Boot with the ability to register with an email sender to confirm the token, authorization, validation and many other functionalities.
+This is bookstore web application written in Java based on Spring Boot with the ability to register with an email sender to confirm the token, authorization, validation and many other functionalities.
 
 ### Technologies/libraries
 * [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
