@@ -18,10 +18,16 @@
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
 <!-- ABOUT THE PROJECT -->
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+    <img src="src/main/resources/logo/DMA1998.png" alt="Logo" width="400" height="250">
+   </div>
+   
 ## About The Project
 
 
-This is bookstore web java application written in Java based on Spring Boot with the ability to register with an email sender to confirm the token, authorization, validation and many other functionalities.
+This is bookstore web application written in Java based on Spring Boot with the ability to register with an email sender to confirm the token, authorization, validation and many other functionalities.
 
 ### Technologies/libraries
 * [Java 11](https://www.oracle.com/java/technologies/javase/jdk11-archive-downloads.html)
@@ -35,16 +41,16 @@ This is bookstore web java application written in Java based on Spring Boot with
 * [JQuery](https://jquery.com)
 
 ### Database
-[MySQL](https://www.mysql.com/)
+* [MySQL](https://www.mysql.com/)
 
 ### Build automation tool
-[Maven](https://maven.apache.org/)
+* [Maven](https://maven.apache.org/)
 
 ## Getting Started
 
 ### Prerequisites
 
-For running the application make sure components bellow installed on your local machine
+For running the application make sure components bellow installed on your local machine:
 
 * Java 11
 * Maven 3.6.0+
@@ -53,14 +59,17 @@ For running the application make sure components bellow installed on your local 
 ### Installation
 
 1. Clone the repo:
+
    ```sh
    git clone https://github.com/DMA1998/bookstore-2022.git
    ```
 2. Set up datasource url:
+
    ```sh
    jdbc:mysql://localhost:3306/bookstore
    ```
-3. Build application:
+3. Build application
+
    ```sh
    mvn clean install -DskipTests=true
    ```
