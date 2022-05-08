@@ -1,6 +1,8 @@
 package com.mykh.bookstore.token.model;
 
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.model.User;
+import lombok.EqualsAndHashCode;
+import lombok.EqualsAndHashCode.Include;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -12,13 +14,20 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.time.LocalDateTime;
+
+import static javax.persistence.CascadeType.PERSIST;
+import static javax.persistence.CascadeType.REMOVE;
 
 
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "confirmation_token")
 @Entity
 public class ConfirmationToken {
 
@@ -29,32 +38,38 @@ public class ConfirmationToken {
     )
 
     @Id
+    @Include
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
             generator = "confirmation_token_sequence"
     )
     private Long id;
-    @Column(nullable = false)
+    @Column(name = "token",nullable = false)
     private String token;
-    @Column(nullable = false)
+    @Column(name = "created_at", nullable = false)
     private LocalDateTime createdAt;
-    @Column(nullable = false)
+    @Column(name = "expires_at")
     private LocalDateTime expiresAt;
+    @Column(name = "confirmed_at")
     private LocalDateTime confirmedAt;
-    @ManyToOne
+
+    @MapsId
+    @Include
+    @ManyToOne(cascade = {PERSIST, REMOVE})
     @JoinColumn(
             nullable = false,
-            name = "app_user_id"
+            name = "user_id",
+            referencedColumnName = "id"
     )
-    private AppUser appUser;
+    private User user;
 
     public ConfirmationToken(String token,
                              LocalDateTime createdAt,
                              LocalDateTime expiresAt,
-                             AppUser appUser) {
+                             User user) {
         this.token = token;
         this.createdAt = createdAt;
         this.expiresAt = expiresAt;
-        this.appUser = appUser;
+        this.user = user;
     }
 }

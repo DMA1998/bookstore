@@ -1,10 +1,8 @@
-package com.mykh.bookstore.appuser.admin.dto;
+package com.mykh.bookstore.user.admin.dto;
 
-import com.mykh.bookstore.util.ObjectMapperHolder;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.mykh.bookstore.util.Constants;
 import lombok.Getter;
 import lombok.SneakyThrows;
 

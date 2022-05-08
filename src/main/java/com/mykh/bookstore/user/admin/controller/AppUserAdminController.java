@@ -1,7 +1,7 @@
-package com.mykh.bookstore.appuser.admin.controller;
+package com.mykh.bookstore.user.admin.controller;
 
-import com.mykh.bookstore.appuser.admin.service.AppUserAdminService;
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.admin.service.AppUserAdminService;
+import com.mykh.bookstore.user.model.User;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +20,7 @@ public class AppUserAdminController {
     @GetMapping("/update")
     public String updateAdmins(Model model) {
         appUserAdminService.updateAdmins();
-        List<AppUser> admins = appUserAdminService.findAdmins();
+        List<User> admins = appUserAdminService.findAdmins();
         model.addAttribute("admins", admins);
         return "admins";
     }

@@ -1,6 +1,6 @@
 package com.mykh.bookstore;
 
-import com.mykh.bookstore.appuser.admin.service.AppUserAdminService;
+import com.mykh.bookstore.user.admin.service.AppUserAdminService;
 import lombok.AllArgsConstructor;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;

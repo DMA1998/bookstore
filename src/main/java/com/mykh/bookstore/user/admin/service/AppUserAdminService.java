@@ -1,9 +1,9 @@
-package com.mykh.bookstore.appuser.admin.service;
+package com.mykh.bookstore.user.admin.service;
 
 
-import com.mykh.bookstore.appuser.admin.dto.AdminsDTO;
-import com.mykh.bookstore.appuser.admin.repository.AppUserAdminRepository;
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.admin.dto.AdminsDTO;
+import com.mykh.bookstore.user.admin.repository.AppUserAdminRepository;
+import com.mykh.bookstore.user.model.User;
 import lombok.AllArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
@@ -30,7 +30,7 @@ public class AppUserAdminService {
     }
 
     @SuppressWarnings("OptionalGetWithoutIsPresent")
-    public List<AppUser> findAdmins() {
+    public List<User> findAdmins() {
         log.info("Fetching all admins");
         return appUserAdminRepository.findAllAdmins().get();
     }

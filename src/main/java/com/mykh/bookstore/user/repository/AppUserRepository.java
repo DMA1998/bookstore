@@ -1,6 +1,6 @@
-package com.mykh.bookstore.appuser.repository;
+package com.mykh.bookstore.user.repository;
 
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,14 +12,14 @@ import java.util.Optional;
 
 @Repository
 @Transactional(readOnly = true)
-public interface AppUserRepository extends JpaRepository<AppUser, Long> {
+public interface AppUserRepository extends JpaRepository<User, Long> {
 
-    List<AppUser> findAll();
+    List<User> findAll();
 
-    Optional<AppUser> findByEmail(String email);
+    Optional<User> findByEmail(String email);
 
     @Transactional
     @Modifying
-    @Query("UPDATE AppUser user SET user.enabled = TRUE WHERE user.email =?1")
+    @Query("UPDATE User user SET user.enabled = TRUE WHERE user.email =?1")
     void enableAppUser(String email);
 }

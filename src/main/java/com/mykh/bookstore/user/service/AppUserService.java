@@ -1,7 +1,7 @@
-package com.mykh.bookstore.appuser.service;
+package com.mykh.bookstore.user.service;
 
-import com.mykh.bookstore.appuser.model.AppUser;
-import com.mykh.bookstore.appuser.repository.AppUserRepository;
+import com.mykh.bookstore.user.model.User;
+import com.mykh.bookstore.user.repository.AppUserRepository;
 
 import com.mykh.bookstore.exception.registration.UserPresentException;
 import com.mykh.bookstore.token.model.ConfirmationToken;
@@ -15,7 +15,6 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.text.MessageFormat;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -38,17 +37,17 @@ public class AppUserService implements UserDetailsService {
                 .orElseThrow(() -> new UsernameNotFoundException(format(AppUserConstants.USER_NOT_FOUND, email)));
     }
 
-    public String signUpUser(AppUser appUser) {
-        boolean userExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
+    public String signUpUser(User user) {
+        boolean userExists = appUserRepository.findByEmail(user.getEmail()).isPresent();
 
         if (userExists) {
-            throw new UserPresentException(format(AppUserConstants.USER_FOUND, appUser.getEmail()));
+            throw new UserPresentException(format(AppUserConstants.USER_FOUND, user.getEmail()));
         }
 
-        String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
-        appUser.setPassword(encodedPassword);
+        String encodedPassword = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(encodedPassword);
 
-        appUserRepository.save(appUser);
+        appUserRepository.save(user);
 
         String token = UUID.randomUUID().toString();
 
@@ -56,7 +55,7 @@ public class AppUserService implements UserDetailsService {
                 token,
                 now(),
                 now().plusMinutes(15),
-                appUser
+                user
         );
 
         confirmationTokenService.saveConfirmationToken(confirmationToken);
@@ -68,12 +67,12 @@ public class AppUserService implements UserDetailsService {
         appUserRepository.enableAppUser(email);
     }
 
-    public Optional<List<AppUser>> getAllUsers() {
+    public Optional<List<User>> getAllUsers() {
         log.info("Fetching all users");
         return Optional.of(appUserRepository.findAll());
     }
 
-    public Optional<AppUser> getUserById(Long id) {
+    public Optional<User> getUserById(Long id) {
         log.info("Finding user by id: {}", id);
         return appUserRepository.findById(id);
     }

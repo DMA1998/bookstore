@@ -1,8 +1,11 @@
-package com.mykh.bookstore.appuser.model;
+package com.mykh.bookstore.user.model;
 
-import com.mykh.bookstore.appuser.enumeration.AppUserRole;
-import lombok.Data;
+import com.mykh.bookstore.user.enumeration.AppUserRole;
+import lombok.EqualsAndHashCode;
+import lombok.EqualsAndHashCode.Include;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,19 +15,23 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
 import java.util.Collection;
 import java.util.Collections;
 
 import static java.lang.Boolean.FALSE;
 import static java.lang.Boolean.TRUE;
+import static javax.persistence.GenerationType.SEQUENCE;
 
-@Data
-@Entity
 @NoArgsConstructor
-public class AppUser implements UserDetails {
+@Getter
+@Setter
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
+@Table(name = "user")
+@Entity
+public class User implements UserDetails {
 
     @SequenceGenerator(
             name = "user_sequence",
@@ -32,27 +39,40 @@ public class AppUser implements UserDetails {
             allocationSize = 1
     )
 
+    @Include
     @Id
     @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
+            strategy = SEQUENCE,
             generator = "user_sequence"
     )
     private Long id;
+
+    @Column(name = "first_name",
+            nullable = false)
     private String firstName;
+
+    @Column(name = "last_name")
     private String lastName;
-    @Column(unique = true)
+    @Column(name = "email",
+            nullable = false,
+            unique = true
+    )
     private String email;
+
+    @Column(name = "password",nullable = false)
     private String password;
     @Enumerated(EnumType.STRING)
+    @Column(name = "app_user_role",
+            nullable = false)
     private AppUserRole appUserRole;
     private Boolean locked = FALSE;
     private Boolean enabled = FALSE;
 
-    public AppUser(String firstName,
-                   String lastName,
-                   String email,
-                   String password,
-                   AppUserRole appUserRole) {
+    public User(String firstName,
+                String lastName,
+                String email,
+                String password,
+                AppUserRole appUserRole) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;

@@ -1,7 +1,7 @@
-package com.mykh.bookstore.appuser.api;
+package com.mykh.bookstore.user.api;
 
-import com.mykh.bookstore.appuser.model.AppUser;
-import com.mykh.bookstore.appuser.service.AppUserService;
+import com.mykh.bookstore.user.model.User;
+import com.mykh.bookstore.user.service.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,12 +19,12 @@ public class AppUserController {
     private final AppUserService appUserService;
 
     @GetMapping(path = "/users")
-    public List<AppUser> getUsers() {
+    public List<User> getUsers() {
         return appUserService.getAllUsers().get();
     }
 
     @GetMapping(path = "/{id}")
-    public AppUser getUser(@PathVariable("id") Long id) {
+    public User getUser(@PathVariable("id") Long id) {
         return appUserService.getUserById(id).get();
     }
 

@@ -1,4 +1,4 @@
-package com.mykh.bookstore.appuser.enumeration;
+package com.mykh.bookstore.user.enumeration;
 
 public enum AppUserRole {
     USER,

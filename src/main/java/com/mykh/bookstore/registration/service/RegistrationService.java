@@ -1,7 +1,7 @@
 package com.mykh.bookstore.registration.service;
 
-import com.mykh.bookstore.appuser.model.AppUser;
-import com.mykh.bookstore.appuser.service.AppUserService;
+import com.mykh.bookstore.user.model.User;
+import com.mykh.bookstore.user.service.AppUserService;
 import com.mykh.bookstore.registration.email.EmailSender;
 import com.mykh.bookstore.exception.email.EmailConfirmationException;
 import com.mykh.bookstore.exception.registration.token.TokenExpiredException;
@@ -14,7 +14,6 @@ import com.mykh.bookstore.token.model.ConfirmationToken;
 import com.mykh.bookstore.token.service.ConfirmationTokenService;
 import com.mykh.bookstore.util.MessageProvider;
 import com.mykh.bookstore.util.HtmlEmailPageBuilder;
-import com.mykh.bookstore.util.RegistrationConstants;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,7 +22,7 @@ import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
-import static com.mykh.bookstore.appuser.enumeration.AppUserRole.USER;
+import static com.mykh.bookstore.user.enumeration.AppUserRole.USER;
 import static com.mykh.bookstore.util.RegistrationConstants.BAD_EMAIL;
 import static java.text.MessageFormat.format;
 import static java.time.LocalDateTime.now;
@@ -47,7 +46,7 @@ public class RegistrationService {
             throw new EmailValidationException(MessageFormat.format(BAD_EMAIL, email));
         }
 
-        String token = appUserService.signUpUser(new AppUser(
+        String token = appUserService.signUpUser(new User(
                 request.getFirstName(),
                 request.getLastName(),
                 request.getEmail(),
@@ -67,7 +66,7 @@ public class RegistrationService {
                 .orElseThrow(() -> new TokenNotFoundException(format("Token {0} was not found", token)));
 
         if (Objects.nonNull(confirmationToken.getConfirmedAt())) {
-            throw new EmailConfirmationException(MessageFormat.format("Email {0} already confirmed", confirmationToken.getAppUser().getEmail()));
+            throw new EmailConfirmationException(MessageFormat.format("Email {0} already confirmed", confirmationToken.getUser().getEmail()));
         }
 
         LocalDateTime expiredAt = confirmationToken.getExpiresAt();
@@ -77,7 +76,7 @@ public class RegistrationService {
         }
 
         confirmationTokenService.setConfirmedAt(token);
-        appUserService.enableAppUser(confirmationToken.getAppUser().getEmail());
+        appUserService.enableAppUser(confirmationToken.getUser().getEmail());
 
         return "Confirmation token sent to email";
     }

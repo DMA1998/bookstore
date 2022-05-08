@@ -1,6 +1,6 @@
 package com.mykh.bookstore.login.service;
 
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.model.User;
 import com.mykh.bookstore.exception.login.UserNotFoundException;
 import com.mykh.bookstore.login.model.LoginRequest;
 import com.mykh.bookstore.login.repository.LoginRepository;
@@ -18,8 +18,9 @@ public class LoginService {
 
     private final LoginRepository loginRepository;
 
+    @SuppressWarnings("OptionalGetWithoutIsPresent")
     public void checkUser(LoginRequest request) {
-        Optional<AppUser> user = loginRepository.findUserByCredentials(
+        Optional<User> user = loginRepository.findUserByCredentials(
                 request.getUsername(),
                 request.getPassword());
 

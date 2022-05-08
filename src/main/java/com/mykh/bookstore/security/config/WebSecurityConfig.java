@@ -1,6 +1,6 @@
 package com.mykh.bookstore.security.config;
 
-import com.mykh.bookstore.appuser.service.AppUserService;
+import com.mykh.bookstore.user.service.AppUserService;
 import lombok.AllArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,6 +1,6 @@
-package com.mykh.bookstore.appuser.api;
+package com.mykh.bookstore.user.api;
 
-import com.mykh.bookstore.appuser.model.AppUser;
+import com.mykh.bookstore.user.model.User;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.Order;
@@ -10,18 +10,18 @@ import org.springframework.context.annotation.Description;
 
 import java.util.List;
 
-import static com.mykh.bookstore.appuser.enumeration.AppUserRole.*;
+import static com.mykh.bookstore.user.enumeration.AppUserRole.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
-public class AppUserControllerIntegrationTest {
+public class UserControllerIntegrationTest {
 
     private static final String EMAIL = "AX5555AC@gmail.com";
 
     @Autowired
     private AppUserController appUserController;
 
-    private List<AppUser> users;
+    private List<User> users;
 
     @BeforeEach
     void setUp() {
@@ -40,14 +40,14 @@ public class AppUserControllerIntegrationTest {
     @Order(2)
     @Description("Fetch an admin by list of users")
     void testRetrievingAdmin() {
-        AppUser admin = users.stream()
+        User admin = users.stream()
                 .filter(user -> user.getAppUserRole().equals(ADMIN))
                 .findAny()
                 .orElseGet(null);
 
         assertThat(admin)
                 .isNotNull()
-                .extracting(AppUser::getAppUserRole)
+                .extracting(User::getAppUserRole)
                 .isEqualTo(ADMIN);
     }
 
@@ -55,11 +55,11 @@ public class AppUserControllerIntegrationTest {
     @Order(3)
     @Description("Find user by specified ID")
     void findById() {
-        AppUser user = appUserController.getUser(1L);
+        User user = appUserController.getUser(1L);
 
         assertThat(user)
                 .isNotNull()
-                .extracting(AppUser::getEmail)
+                .extracting(User::getEmail)
                 .isEqualTo(EMAIL);
     }
 }
