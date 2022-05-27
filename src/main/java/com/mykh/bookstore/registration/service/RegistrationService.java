@@ -9,7 +9,6 @@ import com.mykh.bookstore.exception.registration.token.TokenNotFoundException;
 import com.mykh.bookstore.exception.email.EmailValidationException;
 import com.mykh.bookstore.registration.model.RegistrationRequest;
 import com.mykh.bookstore.registration.email.validation.EmailValidator;
-import com.mykh.bookstore.registration.view.WelcomeView;
 import com.mykh.bookstore.token.model.ConfirmationToken;
 import com.mykh.bookstore.token.service.ConfirmationTokenService;
 import com.mykh.bookstore.util.MessageProvider;
@@ -31,12 +30,13 @@ import static java.time.LocalDateTime.now;
 @AllArgsConstructor
 public class RegistrationService {
 
+    //todo: set up email sender
+
     private final EmailValidator emailValidator;
     private final EmailSender emailSender;
     private final AppUserService appUserService;
     private final ConfirmationTokenService confirmationTokenService;
     private final MessageProvider messageProvider;
-    private final WelcomeView welcomeView;
 
     @Transactional
     public String register(RegistrationRequest request) {
@@ -57,7 +57,7 @@ public class RegistrationService {
         String link = messageProvider.getTokenConfirmationLink() + token;
         emailSender.send(request.getEmail(), HtmlEmailPageBuilder.buildEmail(request.getFirstName(), link));
 
-        return welcomeView.welcomePage();
+        return "token success";
     }
 
     @Transactional
