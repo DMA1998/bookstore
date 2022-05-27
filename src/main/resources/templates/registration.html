@@ -3,61 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="css/registration.css">
-    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet'
+          type='text/css'>
+    <link rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+          crossorigin="anonymous">
     <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
-
+    <title>registration</title>
 </head>
 <body>
 <div class="testbox">
     <h1>Registration</h1>
-
-    <form action="#" th:action="@{/api/v1/registration}" th:object="${request}" method="post">
+    <form th:action="@{/api/v1/registration}" th:object="${request}" method="post">
         <hr>
-        <label id="icon" for="name"><i class="icon-user"></i></label>
-        <input type="text" th:field="*{firstName}" name="name" id="name" placeholder="First name" required/>
-        <label id="icon" for="name"><i class="icon-user"></i></label>
-        <input type="text" th:field="*{lastName}" name="name" id="name" placeholder="Second name" required/>
-        <label id="icon" for="name"><i class="icon-envelope "></i></label>
-        <input type="text" th:field="*{email}" name="name" id="name" placeholder="Email" required/>
-        <label id="icon" for="name"><i class="icon-shield"></i></label>
-        <input type="password" th:field="*{password}" name="name" id="name" placeholder="Password" required/>
+        <label><i class="icon-user"></i></label>
+        <label for="firstName"></label><input type="text" th:field="*{firstName}" name="name" id="firstName" placeholder="First name" required/>
+        <label><i class="icon-user"></i></label>
+        <label for="lastName"></label><input type="text" th:field="*{lastName}" name="name" id="lastName" placeholder="Second name" required/>
+        <label><i class="icon-envelope "></i></label>
+        <label for="email"></label><input type="text" th:field="*{email}" name="name" id="email" placeholder="Email" required/>
+        <label><i class="icon-shield"></i></label>
+        <label for="password"></label><input id="password" name="name" placeholder="Password" required th:field="*{password}" type="password"/>
         <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
-        <a href="#" class="button">Register</a>
+        <input type="submit" value="Register" class="btn btn-warning" />
     </form>
 </div>
-<!--<form action="#" th:action="@{/api/v1/registration}" th:object="${request}" method="post">
-    <div>
-        <h2>Name</h2>
-        <label>
-            <input type="text" th:field="*{firstName}"/>
-        </label>
-    </div>
-    <div>
-        <h2>Last name</h2>
-        <label>
-            <input type="text" th:field="*{lastName}"/>
-        </label>
-    </div>
-    <div>
-        <h2>Email</h2>
-        <label>
-            <input type="text" th:field="*{email}"/>
-        </label>
-    </div>
-    <div>
-        <h2>Password</h2>
-        <label>
-            <input type="text" th:field="*{password}"/>
-        </label>
-    </div>
-    <div>
-        <h2>Go</h2>
-        <label>
-            <input type="submit"/>
-        </label>
-    </div>
-    <div>
-    </div>
-</form>-->
 </body>
 </html>
