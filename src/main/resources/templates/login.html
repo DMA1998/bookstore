@@ -3,33 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+          content="width=device-width,
+           user-scalable=no,
+           initial-scale=1.0,
+           maximum-scale=1.0,
+           minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
- <link rel="stylesheet"  href="/css/login.css" th:href="@{/css/login.css}"/>
-    <title>Thymeleaf Form handling Demo</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+          crossorigin="anonymous"/>
+    <title>login page</title>
 </head>
-<body class="login_page_body">
-<h1> Login: </h1>
-<div th:if="${param.error}">
-    Invalid username and password.
+<body>
+<div class="container text-center my-5 ">
+    <h1 class> Login: </h1>
+    <div th:if="${param.error}">
+        Invalid username and password.
+    </div>
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+    <br>
+    <form method="post" th:action="@{/login}" th:object="${login_request}">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            <input type="email" th:field="*{username}" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" th:field="*{password}" class="form-control" id="exampleInputPassword1">
+        </div>
+        <button type="submit" class="btn btn-primary">Go</button>
+    </form>
 </div>
-<div th:if="${param.logout}">
-    You have been logged out.
-</div>
-<form method="post" th:action="@{/login}" th:object="${login_request}">
-    <label>
-        Username:
-        <input type="text" th:field="*{username}"/>
-    </label>
-    <label>
-        Password:
-        <input type="text" th:field="*{password}"/>
-    </label>
-    Go:
-    <button type="submit">
-    </button>
-</form>
 <br>
-<h1 ><a  href="http://localhost:8080/api/v2/registration">Registration</a></h1>
+<a href="http://localhost:8080/api/v2/registration" class="btn btn-warning"><h1>Registration</h1></a>
 </body>
 </html>

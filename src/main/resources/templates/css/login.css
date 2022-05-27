@@ -1,11 +1,1 @@
-.login_page_body {
-    background-image: url("templates/library_background.jpg");
-    background-size: 100%;
-    opacity: 0.5;
-}
 
-.login_page_body p {
-    margin: 5%;
-    font-weight: bold;
-    color: #000000;
-}

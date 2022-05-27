@@ -2,9 +2,30 @@
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/registration.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css" rel="stylesheet">
+
 </head>
 <body>
-<form action="#" th:action="@{/api/v1/registration}" th:object="${request}" method="post">
+<div class="testbox">
+    <h1>Registration</h1>
+
+    <form action="#" th:action="@{/api/v1/registration}" th:object="${request}" method="post">
+        <hr>
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="text" th:field="*{firstName}" name="name" id="name" placeholder="First name" required/>
+        <label id="icon" for="name"><i class="icon-user"></i></label>
+        <input type="text" th:field="*{lastName}" name="name" id="name" placeholder="Second name" required/>
+        <label id="icon" for="name"><i class="icon-envelope "></i></label>
+        <input type="text" th:field="*{email}" name="name" id="name" placeholder="Email" required/>
+        <label id="icon" for="name"><i class="icon-shield"></i></label>
+        <input type="password" th:field="*{password}" name="name" id="name" placeholder="Password" required/>
+        <p>By clicking Register, you agree on our <a href="#">terms and condition</a>.</p>
+        <a href="#" class="button">Register</a>
+    </form>
+</div>
+<!--<form action="#" th:action="@{/api/v1/registration}" th:object="${request}" method="post">
     <div>
         <h2>Name</h2>
         <label>
@@ -37,6 +58,6 @@
     </div>
     <div>
     </div>
-</form>
+</form>-->
 </body>
 </html>

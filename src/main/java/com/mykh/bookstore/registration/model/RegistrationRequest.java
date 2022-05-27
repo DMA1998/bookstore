@@ -19,13 +19,12 @@ public class RegistrationRequest implements Request{
     @NotNull
     @NotEmpty
     private String firstName;
-    @NotNull
-    @NotEmpty
+    
     private String lastName;
     @NotNull
     @NotEmpty
     private String email;
-    @NotNull
+    @NotNull    
     @NotEmpty
     private String password;
 
