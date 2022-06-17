@@ -1,5 +1,6 @@
 package com.mykh.bookstore.registration.service;
 
+import com.mykh.bookstore.token.TokenController;
 import com.mykh.bookstore.user.model.User;
 import com.mykh.bookstore.user.service.AppUserService;
 import com.mykh.bookstore.registration.email.EmailSender;
@@ -37,6 +38,7 @@ public class RegistrationService {
     private final AppUserService appUserService;
     private final ConfirmationTokenService confirmationTokenService;
     private final MessageProvider messageProvider;
+    private final TokenController tokenController;
 
     @Transactional
     public String register(RegistrationRequest request) {
@@ -57,7 +59,7 @@ public class RegistrationService {
         String link = messageProvider.getTokenConfirmationLink() + token;
         emailSender.send(request.getEmail(), HtmlEmailPageBuilder.buildEmail(request.getFirstName(), link));
 
-        return "token success";
+        return tokenController.tokenView();
     }
 
     @Transactional
