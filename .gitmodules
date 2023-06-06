@@ -1,6 +1,0 @@
-[submodule "junior"]
-	path = junior
-	url = https://github.com/DMA1998/junior
-[submodule "src/main/java/com/mykh/bookstore/junior"]
-	path = src/main/java/com/mykh/bookstore/junior
-	url = https://github.com/DMA1998/junior
