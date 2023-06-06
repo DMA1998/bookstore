@@ -14,7 +14,7 @@
     <name>bookstore</name>
     <description>Bookstore project based on Spring Boot</description>
     <properties>
-        <java.version>11</java.version>
+        <java.version>17</java.version>
         <assertj.version>3.21.0</assertj.version>
         <junit.version>4.12</junit.version>
     </properties>
